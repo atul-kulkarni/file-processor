@@ -17,13 +17,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class FileProcessorTest {
 
   @Test
-  void testReadInputFile() throws IOException {
+  void testReadInputStream() throws IOException {
     // Arrange
     InputStream inputStream = new ByteArrayInputStream("ABC".getBytes());
     FileProcessor fileProcessor = new FileProcessor();
 
     // Act
-    String content = fileProcessor.readInputFile(inputStream);
+    String content = fileProcessor.readInputStream(inputStream);
 
     // Assert
     assertEquals("ABC", content);
@@ -37,14 +37,14 @@ public class FileProcessorTest {
   }
 
   @Test
-  void testWriteOutputFile() throws IOException {
+  void testWriteToOutputStream() throws IOException {
     // Arrange
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     FileProcessor fileProcessor = new FileProcessor();
     String reversedContent = "CBA";
 
     // Act
-    fileProcessor.writeOutputFile(outputStream, reversedContent);
+    fileProcessor.writeToOutputStream(outputStream, reversedContent);
 
     // Assert
     assertEquals(reversedContent, outputStream.toString());
